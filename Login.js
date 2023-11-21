@@ -20,7 +20,6 @@ export default function TelaInicial({ navigation }) {
 }
 
 
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,

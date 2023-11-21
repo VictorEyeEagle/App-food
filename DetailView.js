@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { Card, Button } from '@rneui/base';
-import { DATA_BASE } from './ListView'; // Importando o banco de dados simulado do ListView
+import { DATA_BASE } from './ListView'; 
 
 const ProductDetail = ({ route, navigation }) => {
   const { id } = route.params;
   console.log(`Selecionado = ${id}`);
-  const product = DATA_BASE.find((item) => item.id === id); // Encontrando o produto pelo ID
+  const product = DATA_BASE.find((item) => item.id === id); 
 
   return (
     <View>
