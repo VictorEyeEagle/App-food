@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, TextInput } from 'react-native';
-import { styles } from './Login';
+import styles from "./styles"
 
 export default function Registro_Tela({ navigation }) {
 
