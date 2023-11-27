@@ -16,7 +16,6 @@ export default function TelaInicial({ navigation }) {
       <TouchableOpacity style={styles.regButton} onPress={() => navigation.navigate("Registrar")} >
         <Text style={styles.buttonText}>Registre-se</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.darkmodebuttom} ><Image source={{ uri: 'https://cdn-icons-png.flaticon.com/128/3236/3236878.png' }} style={styles.noturno} /></TouchableOpacity>
     </View>
   );
 }

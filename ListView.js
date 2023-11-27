@@ -32,10 +32,10 @@ function Item({ item, index, navigation }) {
         navigation.navigate('Detalhes', { id: item.id });
     }
     return (
-        <View style={{ padding: 5 }}>
-            <TouchableOpacity onPress={itemSelecionado}>
-                <ListItem>
-                    <Image source={{ uri: item.imagem }} containerStyle={{ width: 100, height: 100 }} />
+        <View style={{ padding: 8 }}>
+            <TouchableOpacity onPress={itemSelecionado} >
+                <ListItem containerStyle={{ borderRadius: 100 }}>
+                    <Image source={{ uri: item.imagem }} containerStyle={{ width: 100, height: 100, borderRadius: 50 }} />
                     <ListItem.Content style={{ flex: 1 }}>
                         <ListItem.Title style={{ fontWeight: 'bold' }}>{item.nome}</ListItem.Title>
                         <ListItem.Subtitle>{item.descricao}</ListItem.Subtitle>
