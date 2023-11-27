@@ -42,25 +42,27 @@ let styles = StyleSheet.create({
     },
 
     logButton: {
-        backgroundColor: 'black',
-        borderRadius: 50,
+        backgroundColor: '#d60939',
+        borderRadius: 15,
         bottom: 300,
-        padding: 20,
+        padding: 15,
         paddingLeft: 60,
         paddingRight: 60
     },
 
     regButton: {
         backgroundColor: 'black',
-        borderRadius: 50,
+        borderRadius: 15,
         bottom: 290,
-        padding: 20,
+        padding: 15,
         paddingLeft: 60,
         paddingRight: 60
     },
 
     buttonText: {
         color: 'white',
+        fontWeight: "900",
+        fontSize: 15,
     },
 
     noturno: {
@@ -75,9 +77,15 @@ let styles = StyleSheet.create({
     darkmodebuttom: {
         right: -175,
         top: -35
-    }
+    },
 
+    imageLo: {
+        position: "relative",
+        top: 300,
+    }
 }
 );
+
+
 
 export default styles
