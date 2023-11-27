@@ -78,11 +78,26 @@ let styles = StyleSheet.create({
         right: -175,
         top: -35
     },
-
-    imageLo: {
-        position: "relative",
-        top: 300,
-    }
+    imagem: {
+        position: "absolute",
+        top: 550,
+        width: 100,
+        height: 50,
+        left: 50,
+    },
+    imagem2: {
+        position: "absolute",
+        top: 550,
+        width: 100,
+        height: 50,
+    },
+    imagem3: {
+        position: "absolute",
+        top: 550,
+        width: 100,
+        height: 50,
+        right: 50,
+    },
 }
 );
 
