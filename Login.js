@@ -4,6 +4,8 @@ import { Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from "./styles"
 
 export default function TelaInicial({ navigation }) {
+
+  
   return (
     <View style={styles.container}>
       <Text style={styles.cabeçalho}>Bem vindo!</Text>

@@ -14,6 +14,7 @@
     "@rneui/base": "^4.0.0-rc.8",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
+    "firebase": "^10.7.0",
     "react": "^18.2.0",
     "react-native": "^0.72.7"
   },
