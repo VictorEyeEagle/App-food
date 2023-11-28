@@ -9,7 +9,7 @@ export default function TelaInicial({ navigation }) {
       <Text style={styles.cabeçalho}>Bem vindo!</Text>
       <StatusBar style="auto" />
       <TextInput placeholder='Email' textContentType="emailAddress" style={styles.inputtext} />
-      <TextInput placeholder='Senha' textContentType="password" style={styles.inputtext} />
+      <TextInput placeholder='Senha' textContentType="password" secureTextEntry style={styles.inputtext} />
       <TouchableOpacity style={styles.logButton} onPress={() => navigation.navigate("Lista")}>
         <Text style={styles.buttonText}>Fazer Login</Text>
       </TouchableOpacity>
