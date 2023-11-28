@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import styles from "./styles"
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase/firebaseConfig';
@@ -16,7 +16,14 @@ export default function Registro_Tela({ navigation }) {
             const userCredential = await createUserWithEmailAndPassword(autenticacao, email, senha);
             const user = userCredential.user;
             console.log("Nova conta criada");
-            navigation.goBack();
+            Alert.alert(
+                'Sucesso!',
+                'Nova conta criada com sucesso!',
+                [
+                    { text: 'OK', onPress: () => navigation.goBack() }
+                ],
+                { cancelable: false }
+            );
         } catch (error) {
             console.error('Erro ao registrar:', error.message);
         }
