@@ -33,21 +33,21 @@ export default function Registro_Tela({ navigation }) {
         <View style={styles.container}>
             <Text style={styles.cabeçalho2}>Sessão de registro</Text>
             <TextInput
-                style={styles.inputtext}
+                style={styles.inputtext2}
                 placeholder='Nome de Usuario'
                 textContentType='name'
                 value={nomeUsuario}
                 onChangeText={setNomeUsuario}
             />
             <TextInput
-                style={styles.inputtext}
+                style={styles.inputtext2}
                 placeholder='Email'
                 textContentType='emailAddress'
                 value={email}
                 onChangeText={setEmail}
             />
             <TextInput
-                style={styles.inputtext}
+                style={styles.inputtext2}
                 placeholder='Senha'
                 textContentType='password'
                 secureTextEntry
@@ -55,14 +55,14 @@ export default function Registro_Tela({ navigation }) {
                 onChangeText={setSenha}
             />
             <TextInput
-                style={styles.inputtext}
+                style={styles.inputtext2}
                 placeholder='Numero de telefone'
                 textContentType='telephoneNumber'
                 keyboardType='numeric'
                 value={telefone}
                 onChangeText={setTelefone}
             />
-            <TouchableOpacity style={styles.regButton} onPress={handleRegistro}>
+            <TouchableOpacity style={styles.regButton2} onPress={handleRegistro}>
                 <Text style={styles.buttonText}>Registrar</Text>
             </TouchableOpacity>
         </View>
