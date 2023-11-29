@@ -10,96 +10,90 @@ let styles = StyleSheet.create({
 
     cabeçalho: {
         fontSize: 40,
-        marginBottom: 450,
+        marginBottom: 20,
+        marginTop: 30,
         color: "black",
-        top: 30
+        bottom: 100,
     },
 
     cabeçalho2: {
         fontSize: 40,
-        marginBottom: 400,
+        marginBottom: 20,
+        marginTop: 30,
         color: "black",
-        top: 30,
-        paddingTop: 120
-    },
-
-    cabeçalho3: {
-        fontSize: 30,
-        marginBottom: 400,
-        color: "black",
-        bottom: 155,
-        paddingTop: 120
+        paddingTop: 30,
+        bottom: 150,
     },
 
     inputtext: {
         height: 60,
-        width: 250,
-        bottom: 310,
-        borderWidth: 2,
+        width: '80%',
         marginBottom: 10,
         borderRadius: 35,
-        textAlign: 'center'
+        textAlign: 'center',
+        borderWidth: 2
+    },
+    inputtext2: {
+        height: 60,
+        width: '80%',
+        marginBottom: 10,
+        borderRadius: 35,
+        textAlign: 'center',
+        borderWidth: 2,
+        bottom: 120,
     },
 
     logButton: {
         backgroundColor: '#d60939',
         borderRadius: 15,
-        bottom: 300,
-        padding: 15,
-        paddingLeft: 60,
-        paddingRight: 60
+        paddingVertical: 15,
+        paddingHorizontal: 30,
     },
 
     regButton: {
         backgroundColor: 'black',
         borderRadius: 15,
-        bottom: 290,
-        padding: 15,
-        paddingLeft: 60,
-        paddingRight: 60
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        top: 5,
+    },
+
+    regButton2: {
+        backgroundColor: 'black',
+        borderRadius: 15,
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        bottom: 100,
     },
 
     buttonText: {
         color: 'white',
         fontWeight: "900",
         fontSize: 15,
+        textAlign: 'center'
     },
 
-    noturno: {
-        position: "absolute",
-        width: 30,
-        height: 30,
-        bottom: 660,
-        right: 10
-
-    },
-
-    darkmodebuttom: {
-        right: -175,
-        top: -35
-    },
     imagem: {
-        position: "absolute",
-        top: 550,
         width: 100,
         height: 50,
-        left: 50,
+        marginVertical: 10,
+        right: 70,
+        top: 140,
     },
     imagem2: {
-        position: "absolute",
-        top: 550,
         width: 100,
         height: 50,
+        marginVertical: 10,
+        left: 70,
+        top: 70,
     },
     imagem3: {
-        position: "absolute",
-        top: 550,
         width: 100,
         height: 50,
-        right: 50,
-    },
-}
-);
+        marginVertical: 10
+    }
+});
+
 
 
 
