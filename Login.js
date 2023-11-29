@@ -21,7 +21,7 @@ export default function TelaInicial({ navigation }) {
         'Sucesso!',
         'Voce Logou!',
         [
-          { text: 'OK', onPress: () => navigation.navigate("Lista") }
+          { text: 'OK', onPress: () => navigation.navigate("ComDrawer") }
         ],
         { cancelable: false }
       );
@@ -49,7 +49,7 @@ export default function TelaInicial({ navigation }) {
       <TouchableOpacity style={styles.logButton} onPress={handleLogin}>
         <Text style={styles.buttonText}>Fazer Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.regButton} onPress={() => navigation.navigate("Registrar")} >
+      <TouchableOpacity style={styles.regButton} onPress={() => navigation.navigate("Registro")} >
         <Text style={styles.buttonText}>Registre-se</Text>
       </TouchableOpacity>
       <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/25/25347.png" }} resizeMode="center" style={styles.imagem} />

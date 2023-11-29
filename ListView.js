@@ -53,14 +53,14 @@ function ListView({ navigation }) {
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: "#21212b" }}>
             <View style={{ flex: 1 }}>
                 <FlatList
                     data={DATA_BASE}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                 />
-                <Text>Total de produtos: {DATA_BASE.length}</Text>
+                <Text style={{ color: "#21212b" }}>Total de produtos: {DATA_BASE.length}</Text>
             </View>
         </View>
     );
