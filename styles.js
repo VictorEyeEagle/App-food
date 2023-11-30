@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+// login e registro
+
 let styles = StyleSheet.create({
     container: {
         flex: 1,
