@@ -8,7 +8,7 @@ export default function Barralateral({ navigation }) {
         <View style={styles.container}>
             <StatusBar style="auto" />
             <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/1886/1886722.png" }} style={styles.avatar} />
-            <Text style={styles.nome}>Nome usuario</Text>
+            <Text style={styles.nome}>Olá, Nome usuario</Text>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Histórico</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/7420/7420790.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Pagamentos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/619/619914.png" }} style={styles.icon} /></TouchableOpacity>

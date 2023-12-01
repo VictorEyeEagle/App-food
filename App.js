@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 import Barralateral from "./barralater";
 import ListView from "./ListView";
 import DetailView from "./DetailView";
@@ -26,9 +26,16 @@ function App() {
 
 function ComDrawer({ navigation }) {
     return (
-        <Drawer.Navigator drawerContent={(props) => <Barralateral {...props} navigation={navigation} />}>
-            <Drawer.Screen name="Opções" component={ListaStack} options={{ headerTintColor: "#2e2e2e" }} />
-            <Drawer.Screen name="Detalhes" component={DetailView} />
+        <Drawer.Navigator
+            screenOptions={{
+                drawerPosition: 'right',
+                headerLeft: () => null, // Esconde o botão do lado esquerdo
+                headerRight: () => <DrawerToggleButton />,
+                headerTitleAlign: "center"
+            }}
+            drawerContent={(props) => <Barralateral {...props} navigation={navigation} />}
+        >
+            <Drawer.Screen name="Opções" component={ListaStack} options={{ headerTintColor: "#2e2e2e", title: "" }} />
         </Drawer.Navigator>
     );
 }
