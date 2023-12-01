@@ -4,14 +4,30 @@ import styles from "./styles"
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase/firebaseConfig';
 
+
+
+
 export default function Registro_Tela({ navigation }) {
     const [nomeUsuario, setNomeUsuario] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmaSenha, setConfirmaSenha] = useState('');
     const [telefone, setTelefone] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleRegistro = async () => {
+        if (senha !== confirmaSenha) {
+            Alert.alert(
+                'Erro',
+                'As senhas não correspondem!',
+                [
+                    { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
+            return;
+        }
+
         setLoading(true);
         const autenticacao = auth;
         try {
@@ -41,7 +57,7 @@ export default function Registro_Tela({ navigation }) {
                     <Text style={styles.cabeçalho2}>Sessão de registro</Text>
                     <TextInput
                         style={styles.inputtext2}
-                        placeholder='Nome de Usuario'
+                        placeholder='Nome de Usuário'
                         textContentType='name'
                         value={nomeUsuario}
                         onChangeText={setNomeUsuario}
@@ -63,7 +79,15 @@ export default function Registro_Tela({ navigation }) {
                     />
                     <TextInput
                         style={styles.inputtext2}
-                        placeholder='Numero de telefone'
+                        placeholder='Confirmar Senha'
+                        textContentType='password'
+                        secureTextEntry
+                        value={confirmaSenha}
+                        onChangeText={setConfirmaSenha}
+                    />
+                    <TextInput
+                        style={styles.inputtext2}
+                        placeholder='Número de telefone'
                         textContentType='telephoneNumber'
                         keyboardType='numeric'
                         value={telefone}
@@ -76,4 +100,4 @@ export default function Registro_Tela({ navigation }) {
             )}
         </View>
     );
-}    
+}

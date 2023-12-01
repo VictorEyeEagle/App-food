@@ -29,7 +29,7 @@ function ComDrawer({ navigation }) {
         <Drawer.Navigator
             screenOptions={{
                 drawerPosition: 'right',
-                headerLeft: () => null, // Esconde o botão do lado esquerdo
+                headerLeft: () => null,
                 headerRight: () => <DrawerToggleButton />,
                 headerTitleAlign: "center"
             }}

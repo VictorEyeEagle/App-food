@@ -42,7 +42,7 @@ let styles = StyleSheet.create({
         borderRadius: 35,
         textAlign: 'center',
         borderWidth: 2,
-        bottom: 120,
+        bottom: 80,
     },
 
     logButton: {
@@ -65,7 +65,7 @@ let styles = StyleSheet.create({
         borderRadius: 15,
         paddingVertical: 15,
         paddingHorizontal: 30,
-        bottom: 100,
+        bottom: 70,
     },
 
     buttonText: {

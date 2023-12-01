@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet } from 'react-native';
 import { ListItem, Image } from '@rneui/base';
 
 export const DATA_BASE = [
@@ -32,14 +32,14 @@ function Item({ item, index, navigation }) {
         navigation.navigate('Detalhes', { id: item.id });
     }
     return (
-        <View style={{ padding: 8 }}>
+        <View style={{ padding: 8, marginBottom: -10 }}>
             <TouchableOpacity onPress={itemSelecionado} >
-                <ListItem containerStyle={{ borderRadius: 100 }}>
+                <ListItem containerStyle={{ borderRadius: 20, backgroundColor: "#d1d1cf" }}>
                     <Image source={{ uri: item.imagem }} containerStyle={{ width: 100, height: 100, borderRadius: 50 }} />
                     <ListItem.Content style={{ flex: 1 }}>
-                        <ListItem.Title style={{ fontWeight: 'bold' }}>{item.nome}</ListItem.Title>
+                        <ListItem.Title style={{ fontWeight: 'bold', color: "#753b00" }}>{item.nome}</ListItem.Title>
                         <ListItem.Subtitle>{item.descricao}</ListItem.Subtitle>
-                        <ListItem.Subtitle style={{ color: 'blue' }}>R$ {item.valor}</ListItem.Subtitle>
+                        <ListItem.Subtitle style={{ color: 'gray' }}>R$ {item.valor}</ListItem.Subtitle>
                     </ListItem.Content>
                 </ListItem>
             </TouchableOpacity>
@@ -54,12 +54,12 @@ function ListView({ navigation }) {
 
     return (
         <View style={{ flex: 1, backgroundColor: "#21212b" }}>
+            <TextInput style={styles.pesquisar} placeholder='Pesquisar' />
             <View style={{ flex: 1 }}>
                 <FlatList
                     data={DATA_BASE}
                     renderItem={renderItem}
-                    keyExtractor={(item) => item.id.toString()}
-                />
+                    keyExtractor={(item) => item.id.toString()} />
                 <Text style={{ color: "#21212b" }}>Total de produtos: {DATA_BASE.length}</Text>
             </View>
         </View>
@@ -67,3 +67,16 @@ function ListView({ navigation }) {
 }
 
 export default ListView;
+
+
+const styles = StyleSheet.create({
+    pesquisar: {
+        backgroundColor: "white",
+        padding: 15,
+        marginBottom: 10,
+        top: 10,
+        color: "black",
+        borderRadius: 50,
+        fontSize: 20,
+    },
+})
