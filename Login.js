@@ -14,6 +14,7 @@ export default function TelaInicial({ navigation }) {
 
 
   const handleLogin = async () => {
+
     setLoading(true);
     const autenticacao = auth;
     try {

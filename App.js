@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 import Barralateral from "./barralater";
-import ListView from "./ListView";
-import DetailView from "./DetailView";
+import ListView from "./ListaView";
+import DetailView from "./DetalhesView";
 import Login from "./Login";
 import Registro from "./Registro";
 
@@ -15,7 +15,7 @@ const Drawer = createDrawerNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName="ComDrawer">
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Registro" component={Registro} />
                 <Stack.Screen name="ComDrawer" component={ComDrawer} options={{ headerShown: false }} />

@@ -9,10 +9,10 @@ export default function Barralateral({ navigation }) {
             <StatusBar style="auto" />
             <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/1886/1886722.png" }} style={styles.avatar} />
             <Text style={styles.nome}>Olá, Nome usuario</Text>
-            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
-            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Histórico</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/7420/7420790.png" }} style={styles.icon} /></TouchableOpacity>
-            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Pagamentos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/619/619914.png" }} style={styles.icon} /></TouchableOpacity>
-            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext}>Configurações</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/8728/8728040.png" }} style={styles.icon} /></TouchableOpacity>
+            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
+            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Histórico</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/7420/7420790.png" }} style={styles.icon} /></TouchableOpacity>
+            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Pagamentos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/619/619914.png" }} style={styles.icon} /></TouchableOpacity>
+            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Configurações</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/8728/8728040.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.logout} onPress={() => navigation.navigate("Login")}><Text style={styles.opcoestext}>Sair</Text></TouchableOpacity>
         </View>
     )
@@ -35,14 +35,24 @@ const styles = StyleSheet.create({
 
     opcoestext: {
         fontSize: 20,
-        color: "white"
+        color: "white",
+
     },
+
+    opcoestext2: {
+        fontSize: 20,
+        color: "white",
+        left: 50
+
+    },
+
     avatar: {
         width: 100,
         height: 100,
         bottom: 100,
         alignSelf: "center"
     },
+
     logout: {
         borderRadius: 50,
         top: 150,
@@ -50,14 +60,16 @@ const styles = StyleSheet.create({
         padding: 10,
         alignSelf: "center"
     },
+
     icon: {
         position: "absolute",
         width: 30,
         height: 30,
-        left: 220,
+        left: 20,
         top: 10
 
     },
+
     nome: {
         alignSelf: "center",
         color: "white",

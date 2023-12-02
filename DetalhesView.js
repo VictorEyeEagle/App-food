@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import { Card, Button } from '@rneui/base';
-import { DATA_BASE } from './ListView';
+import { View, Text, Image, TouchableHighlight, StyleSheet } from 'react-native';
+import { Card } from '@rneui/base';
+import { DATA_BASE } from './ListaView';
 
 const ProductDetail = ({ route, navigation }) => {
   const { id } = route.params;
@@ -9,10 +9,9 @@ const ProductDetail = ({ route, navigation }) => {
   const product = DATA_BASE.find((item) => item.id === id);
 
   return (
-    <View>
-      <View style={{ borderRadius: 100 }}>
+    <View style={{ backgroundColor: "black", paddingBottom: 175 }}>
+      <View style={{ borderRadius: 0 }}>
         <Card>
-          <Text>id = {id}</Text>
           <Image source={{ uri: product.imagem }} style={{ width: 300, height: 200, borderRadius: 50 }} />
           <View style={{ paddingTop: 20, paddingBottom: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{product.nome}</Text>
@@ -23,7 +22,7 @@ const ProductDetail = ({ route, navigation }) => {
           <View style={{ paddingTop: 20, paddingBottom: 20, flexDirection: 'row', justifyContent: 'flex-end' }}>
             <Text style={{ fontWeight: 'bold' }}>R$ {product.valor}</Text>
           </View>
-          <Button title="Pedir" onPress={() => navigation.goBack()} />
+          <TouchableHighlight style={styles.button} onPress={() => navigation.goBack()}><Text style={styles.text}>Pedir</Text></TouchableHighlight>
         </Card>
       </View>
     </View>
@@ -31,3 +30,15 @@ const ProductDetail = ({ route, navigation }) => {
 };
 
 export default ProductDetail;
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#008CBA',
+    padding: 10,
+    borderRadius: 10,
+  },
+  text: {
+    color: 'white',
+    textAlign: 'center',
+  },
+});
