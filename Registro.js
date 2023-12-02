@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, TextInput, Alert, ActivityIndicator } fro
 import styles from "./styles"
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase/firebaseConfig';
-
+import { updateProfile } from 'firebase/auth';
 
 
 
@@ -33,6 +33,7 @@ export default function Registro_Tela({ navigation }) {
         try {
             const userCredential = await createUserWithEmailAndPassword(autenticacao, email, senha);
             const user = userCredential.user;
+            await updateProfile(user, { displayName: nomeUsuario });
             console.log("Nova conta criada");
             Alert.alert(
                 'Sucesso!',

@@ -2,13 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { StyleSheet } from "react-native";
+import { auth } from "./firebase/firebaseConfig";
 
 export default function Barralateral({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
             <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/1886/1886722.png" }} style={styles.avatar} />
-            <Text style={styles.nome}>Olá, Nome usuario</Text>
+            <Text style={styles.nome}>Olá, {auth.currentUser.displayName}</Text>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Histórico</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/7420/7420790.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Pagamentos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/619/619914.png" }} style={styles.icon} /></TouchableOpacity>

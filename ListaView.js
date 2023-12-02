@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet } from 'react-native';
 import { ListItem, Image } from '@rneui/base';
 
@@ -48,26 +48,40 @@ function Item({ item, index, navigation }) {
 }
 
 function ListView({ navigation }) {
+    const [pesquisa, setPesquisa] = useState('');
+    const dadosFiltrados = DATA_BASE.filter(item =>
+        removerAcentos(item.nome.toLowerCase()).includes(removerAcentos(pesquisa.toLowerCase()))
+    );
+
+    function removerAcentos(s) {
+        return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+
     const renderItem = ({ item }) => {
         return <Item item={item} navigation={navigation} />;
     };
 
     return (
         <View style={{ flex: 1, backgroundColor: "#21212b" }}>
-            <TextInput style={styles.pesquisar} placeholder='Pesquisar' />
+            <TextInput
+                style={styles.pesquisar}
+                placeholder='Pesquisar'
+                value={pesquisa}
+                onChangeText={setPesquisa}
+            />
             <View style={{ flex: 1 }}>
                 <FlatList
-                    data={DATA_BASE}
+                    data={dadosFiltrados}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()} />
-                <Text style={{ color: "#21212b" }}>Total de produtos: {DATA_BASE.length}</Text>
+                <Text style={{ color: "#21212b" }}>Total de produtos: {dadosFiltrados.length}</Text>
             </View>
         </View>
     );
 }
 
 export default ListView;
-
 
 const styles = StyleSheet.create({
     pesquisar: {
@@ -79,4 +93,4 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         fontSize: 20,
     },
-})
+});

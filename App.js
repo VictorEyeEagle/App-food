@@ -15,7 +15,7 @@ const Drawer = createDrawerNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="ComDrawer">
+            <Stack.Navigator>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Registro" component={Registro} />
                 <Stack.Screen name="ComDrawer" component={ComDrawer} options={{ headerShown: false }} />
