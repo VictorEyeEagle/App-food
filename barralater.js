@@ -10,7 +10,7 @@ export default function Barralateral({ navigation }) {
             <StatusBar style="auto" />
             <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/1886/1886722.png" }} style={styles.avatar} />
             <Text style={styles.nome}>Olá, {auth.currentUser.displayName}</Text>
-            <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
+            <TouchableOpacity style={styles.opcoes} onPress={() => navigation.navigate("Conferir Pedidos")}><Text style={styles.opcoestext2}>Conferir pedidos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/5251/5251364.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Histórico</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/7420/7420790.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Pagamentos</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/619/619914.png" }} style={styles.icon} /></TouchableOpacity>
             <TouchableOpacity style={styles.opcoes}><Text style={styles.opcoestext2}>Configurações</Text><Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/8728/8728040.png" }} style={styles.icon} /></TouchableOpacity>

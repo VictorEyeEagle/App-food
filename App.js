@@ -7,22 +7,27 @@ import ListView from "./ListaView";
 import DetailView from "./DetalhesView";
 import Login from "./Login";
 import Registro from "./Registro";
+import Conferirpedidos from "./Conferirpedidos";
+import { AuthProvider } from './AuthProvider';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-
 function App() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Registro" component={Registro} />
-                <Stack.Screen name="ComDrawer" component={ComDrawer} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <AuthProvider>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Registro" component={Registro} />
+                    <Stack.Screen name="ComDrawer" component={ComDrawer} options={{ headerShown: false }} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </AuthProvider>
     );
 }
+
+
 
 function ComDrawer({ navigation }) {
     return (
@@ -47,6 +52,7 @@ function ListaStack() {
         <Stack.Navigator>
             <Stack.Screen name="Lista" component={ListView} options={{ headerShown: false }} />
             <Stack.Screen name="Detalhes" component={DetailView} />
+            <Stack.Screen name="Conferir Pedidos" component={Conferirpedidos} options={{ headerTitleAlign: "center" }} />
         </Stack.Navigator>
     );
 }
