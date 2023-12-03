@@ -5,8 +5,6 @@ import { DATA_BASE } from './ListaView';
 import { auth, db } from '../firebase/firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 
-
-
 const ProductDetail = ({ route, navigation }) => {
   const { id } = route.params;
   console.log(`Selecionado = ${id}`);
@@ -28,7 +26,6 @@ const ProductDetail = ({ route, navigation }) => {
           valor: product.valor,
         };
 
-
         await addDoc(pedidosRef, novoPedido);
 
         console.log('Pedido adicionado com sucesso!');
@@ -38,6 +35,30 @@ const ProductDetail = ({ route, navigation }) => {
     }
   };
 
+  const salvarPedido = async () => {
+    try {
+      const usuarioAtual = auth.currentUser;
+
+      if (usuarioAtual) {
+        const pedidosRef = collection(db, 'pedidosSalvos');
+
+        const novoPedido = {
+          usuarioId: usuarioAtual.uid,
+          produtoId: id,
+          imagem: product.imagem,
+          nome: product.nome,
+          descricao: product.descricao,
+          valor: product.valor,
+        };
+
+        await addDoc(pedidosRef, novoPedido);
+
+        console.log('Pedido salvo com sucesso!');
+      }
+    } catch (error) {
+      console.error('Erro ao salvar pedido:', error);
+    }
+  };
 
   return (
     <View style={{ backgroundColor: "black", paddingBottom: 175 }}>
@@ -54,6 +75,7 @@ const ProductDetail = ({ route, navigation }) => {
             <Text style={{ fontWeight: 'bold' }}>R$ {product.valor}</Text>
           </View>
           <TouchableHighlight style={styles.button} onPress={adicionarPedido}><Text style={styles.text}>Pedir</Text></TouchableHighlight>
+          <TouchableHighlight style={styles.button} onPress={salvarPedido}><Text style={styles.text}>Salvar para mais tarde</Text></TouchableHighlight>
         </Card>
       </View>
     </View>
@@ -67,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#008CBA',
     padding: 10,
     borderRadius: 10,
+    marginTop: 10,
   },
   text: {
     color: 'white',

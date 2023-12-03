@@ -8,6 +8,7 @@ import DetailView from "./componentes/DetalhesView";
 import Login from "./componentes/Login";
 import Registro from "./componentes/Registro";
 import Conferirpedidos from "./componentes/Conferirpedidos";
+import pedidosSalvo from "./componentes/pedidosSalvo";
 import { AuthProvider } from './AuthProvider';
 
 const Stack = createStackNavigator();
@@ -53,6 +54,7 @@ function ListaStack() {
             <Stack.Screen name="Lista" component={ListView} options={{ headerShown: false }} />
             <Stack.Screen name="Detalhes" component={DetailView} />
             <Stack.Screen name="Conferir Pedidos" component={Conferirpedidos} options={{ headerTitleAlign: "center" }} />
+            <Stack.Screen name="Salvos" component={pedidosSalvo} options={{ headerTitleAlign: "center" }} />
         </Stack.Navigator>
     );
 }

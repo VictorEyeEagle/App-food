@@ -21,7 +21,6 @@ export default function TelaInicial({ navigation }) {
       const user = userCredential.user;
       console.log("Conta logada");
       navigation.navigate("ComDrawer");
-      // Limpe os campos de entrada
       setEmail('');
       setSenha('');
     } catch (error) {
