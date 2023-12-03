@@ -20,5 +20,5 @@ O aplicativo foi desenvolvido usando as seguintes tecnologias:
 - **Expo:** Uma plataforma de código aberto para fazer aplicativos universais para Android, iOS e web com JavaScript e React.
 - **Firebase:** Uma plataforma de desenvolvimento de aplicativos da Google que fornece uma variedade de ferramentas e serviços para desenvolvedores. No projeto foram utilizados os seguintes serviços do Firebase:
   - **Firestore:** Um banco de dados NoSQL em nuvem para armazenar e sincronizar dados em tempo real. Utilizei para armazenar os pedidos do usuário logado e fornece-los respectivamente na tela de 'conferir pedidos'.
-  - **Authentication:** Fornece serviços de autenticação de back-end, SDKs fáceis de usar e bibliotecas de IU prontas para autenticar usuários no aplicativo. O usuário se registra usando nome, email e senha. E para logar é necessario usar o mesmo email e senha.
+  - **Authentication:** Fornece serviços de autenticação de back-end, SDKs fáceis de usar e bibliotecas de IU prontas para autenticar usuários no aplicativo. O usuário se registra usando nome, email, senha e telefone. E para logar é necessario usar o mesmo email e senha.
 
