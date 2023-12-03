@@ -2,12 +2,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
-import Barralateral from "./barralater";
-import ListView from "./ListaView";
-import DetailView from "./DetalhesView";
-import Login from "./Login";
-import Registro from "./Registro";
-import Conferirpedidos from "./Conferirpedidos";
+import Barralateral from "./componentes/barralater";
+import ListView from "./componentes/ListaView";
+import DetailView from "./componentes/DetalhesView";
+import Login from "./componentes/Login";
+import Registro from "./componentes/Registro";
+import Conferirpedidos from "./componentes/Conferirpedidos";
 import { AuthProvider } from './AuthProvider';
 
 const Stack = createStackNavigator();

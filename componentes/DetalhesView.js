@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableHighlight, StyleSheet } from 'react-native';
 import { Card } from '@rneui/base';
 import { DATA_BASE } from './ListaView';
-import { auth, db } from './firebase/firebaseConfig';
+import { auth, db } from '../firebase/firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 
 

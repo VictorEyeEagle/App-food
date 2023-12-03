@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, FlatList, TouchableOpacity, TouchableHighlight, Text, StyleSheet } from "react-native";
 import { ListItem, Image } from '@rneui/base';
-import { auth, db } from './firebase/firebaseConfig';
+import { auth, db } from '../firebase/firebaseConfig';
 import { collection, query, where, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 export default function PedidosFeitos() {

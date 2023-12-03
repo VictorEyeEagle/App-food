@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Alert, ActivityIndicator } from 'react-native';
 import styles from "./styles"
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase/firebaseConfig';
+import { auth } from '../firebase/firebaseConfig';
 import { updateProfile } from 'firebase/auth';
 
 

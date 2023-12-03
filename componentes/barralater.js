@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { StyleSheet } from "react-native";
-import { auth } from "./firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 
 export default function Barralateral({ navigation }) {
     return (
