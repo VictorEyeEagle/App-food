@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableHighlight, StyleSheet } from 'react-native';
 import { Card } from '@rneui/base';
-import { DATA_BASE } from './ListaView';
 import { auth, db } from '../firebase/firebaseConfig';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc } from "firebase/firestore";
 
 const ProductDetail = ({ route, navigation }) => {
   const { id } = route.params;
   console.log(`Selecionado = ${id}`);
-  const product = DATA_BASE.find((item) => item.id === id);
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const productRef = doc(db, 'comidas', id);
+      const productDoc = await getDoc(productRef);
+
+      if (productDoc.exists()) {
+        setProduct({ id: productDoc.id, ...productDoc.data() });
+      } else {
+        console.log('documento inexistente');
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
 
   const adicionarPedido = async () => {
     try {
@@ -59,6 +73,10 @@ const ProductDetail = ({ route, navigation }) => {
       console.error('Erro ao salvar pedido:', error);
     }
   };
+
+  if (!product) {
+    return null;
+  }
 
   return (
     <View style={{ backgroundColor: "black", paddingBottom: 175 }}>

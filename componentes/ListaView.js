@@ -1,36 +1,15 @@
-import React, { useState } from 'react';
-import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet, RefreshControl } from 'react-native'; 
 import { ListItem, Image } from '@rneui/base';
-
-export const DATA_BASE = [
-    {
-        id: 1,
-        nome: 'Hambúrguer Clássico',
-        descricao: 'Pão, carne, alface, queijo, molho especial',
-        valor: 12.99,
-        imagem: 'https://www.estadao.com.br/resizer/YIBfPUoXUOKRYG7IVo-jptwsSFY=/720x503/filters:format(jpg):quality(80):focal(3070x2285:3080x2295)/cloudfront-us-east-1.images.arcpublishing.com/estadao/L3LYN5Y4MRG6BB47MNHEEXDRGA.jpeg',
-    },
-    {
-        id: 2,
-        nome: 'Hambúrguer de Frango',
-        descricao: 'Pão, Frango, alface, tomate',
-        valor: 10.99,
-        imagem: 'https://www.incrivel.com/_next/image/?url=https%3A%2F%2Fincrivel-prd.adtsys.com.br%2Fwp-content%2Fuploads%2F2022%2F09%2FHAMBURGER_FRANGO-1.png&w=1920&q=75',
-    },
-    {
-        id: 3,
-        nome: "Hamburguer Barbecue",
-        descricao: "pão de hambúrguer, hamburguer de carne, molho barbecue, cebola caramelizada, queijo prato",
-        valor: 10.99,
-        imagem: "https://img.cybercook.com.br/receitas/107/hamburguer-com-bacon-queijo-cheddar-e-molho-barbecue.jpeg",
-    },
-];
+import { collection, getDocs } from 'firebase/firestore'; 
+import { db } from '../firebase/firebaseConfig'; 
 
 function Item({ item, index, navigation }) {
     function itemSelecionado() {
         console.log(`Item Selecionado = ${index}`);
         navigation.navigate('Detalhes', { id: item.id });
     }
+
     return (
         <View style={{ padding: 8, marginBottom: -10 }}>
             <TouchableOpacity onPress={itemSelecionado} >
@@ -49,14 +28,33 @@ function Item({ item, index, navigation }) {
 
 function ListView({ navigation }) {
     const [pesquisa, setPesquisa] = useState('');
-    const dadosFiltrados = DATA_BASE.filter(item =>
+    const [comidas, setComidas] = useState([]); 
+    const [refreshing, setRefreshing] = useState(false); 
+
+    const fetchComidas = async () => {
+        const collectionRef = collection(db, 'comidas');
+        const querySnapshot = await getDocs(collectionRef);
+        const comidas = querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
+        setComidas(comidas);
+        setRefreshing(false); 
+    };
+
+    useEffect(() => {
+        fetchComidas();
+    }, []);
+
+    const onRefresh = () => {
+        setRefreshing(true);
+        fetchComidas();
+    };
+
+    const dadosFiltrados = comidas.filter(item =>
         removerAcentos(item.nome.toLowerCase()).includes(removerAcentos(pesquisa.toLowerCase()))
     );
 
     function removerAcentos(s) {
         return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
-
 
     const renderItem = ({ item }) => {
         return <Item item={item} navigation={navigation} />;
@@ -74,7 +72,13 @@ function ListView({ navigation }) {
                 <FlatList
                     data={dadosFiltrados}
                     renderItem={renderItem}
-                    keyExtractor={(item) => item.id.toString()} />
+                    keyExtractor={(item) => item.id.toString()}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                        />
+                    } />
                 <Text style={{ color: "#21212b" }}>Total de produtos: {dadosFiltrados.length}</Text>
             </View>
         </View>
