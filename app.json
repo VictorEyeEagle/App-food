@@ -4,10 +4,10 @@
     "slug": "Atividade",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/566498.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/OIG.PuOadP.jpeg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

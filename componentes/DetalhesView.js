@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Card } from '@rneui/base';
 import { auth, db } from '../firebase/firebaseConfig';
 import { collection, addDoc, doc, getDoc } from "firebase/firestore";
@@ -92,8 +92,8 @@ const ProductDetail = ({ route, navigation }) => {
           <View style={{ paddingTop: 20, paddingBottom: 20, flexDirection: 'row', justifyContent: 'flex-end' }}>
             <Text style={{ fontWeight: 'bold' }}>R$ {product.valor}</Text>
           </View>
-          <TouchableHighlight style={styles.button} onPress={adicionarPedido}><Text style={styles.text}>Pedir</Text></TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={salvarPedido}><Text style={styles.text}>Salvar para mais tarde</Text></TouchableHighlight>
+          <TouchableOpacity style={styles.button} onPress={adicionarPedido}><Text style={styles.text}>Pedir</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={salvarPedido}><Text style={styles.text}>Salvar para mais tarde</Text></TouchableOpacity>
         </Card>
       </View>
     </View>
@@ -104,9 +104,9 @@ export default ProductDetail;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#008CBA',
+    backgroundColor: '#150791',
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 50,
     marginTop: 10,
   },
   text: {

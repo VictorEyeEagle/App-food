@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet, RefreshControl } from 'react-native'; 
+import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet, RefreshControl } from 'react-native';
 import { ListItem, Image } from '@rneui/base';
-import { collection, getDocs } from 'firebase/firestore'; 
-import { db } from '../firebase/firebaseConfig'; 
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 
 function Item({ item, index, navigation }) {
     function itemSelecionado() {
@@ -28,15 +28,15 @@ function Item({ item, index, navigation }) {
 
 function ListView({ navigation }) {
     const [pesquisa, setPesquisa] = useState('');
-    const [comidas, setComidas] = useState([]); 
-    const [refreshing, setRefreshing] = useState(false); 
+    const [comidas, setComidas] = useState([]);
+    const [refreshing, setRefreshing] = useState(false);
 
     const fetchComidas = async () => {
         const collectionRef = collection(db, 'comidas');
         const querySnapshot = await getDocs(collectionRef);
         const comidas = querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
         setComidas(comidas);
-        setRefreshing(false); 
+        setRefreshing(false);
     };
 
     useEffect(() => {
@@ -90,11 +90,13 @@ export default ListView;
 const styles = StyleSheet.create({
     pesquisar: {
         backgroundColor: "white",
-        padding: 15,
+        padding: 10,
         marginBottom: 10,
         top: 10,
         color: "black",
         borderRadius: 50,
         fontSize: 20,
+        width: '95%',
+        marginLeft: 8
     },
 });
