@@ -7,19 +7,23 @@ import { collection, query, where, getDocs, doc, deleteDoc } from "firebase/fire
 export default function PedidosFeitos() {
   const [pedidos, setPedidos] = useState([]);
 
-  const fetchOrders = async () => {
-    const usuarioAtual = auth.currentUser;
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const usuarioAtual = auth.currentUser;
 
-    if (usuarioAtual) {
-      const pedidosRef = collection(db, 'pedidos');
-      const q = query(pedidosRef, where('usuarioId', '==', usuarioAtual.uid));
+      if (usuarioAtual) {
+        const pedidosRef = collection(db, 'pedidos');
+        const q = query(pedidosRef, where('usuarioId', '==', usuarioAtual.uid));
 
-      const querySnapshot = await getDocs(q);
-      const pedidos = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        const querySnapshot = await getDocs(q);
+        const pedidos = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-      setPedidos(pedidos);
-    }
-  };
+        setPedidos(pedidos);
+      }
+    };
+
+    fetchOrders();
+  }, []);
 
   const excluirPedido = async (id) => {
     try {
@@ -31,43 +35,31 @@ export default function PedidosFeitos() {
     }
   };
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  const renderItem = ({ item }) => {
-    if (item) {
-      return (
-        <View style={{ padding: 8, marginBottom: -10 }}>
-          <TouchableOpacity>
-            <ListItem containerStyle={{ borderRadius: 20, backgroundColor: "#d1d1cf" }}>
-              <Image source={{ uri: item.imagem }} containerStyle={{ width: 100, height: 100, borderRadius: 50 }} />
-              <ListItem.Content style={{ flex: 1 }}>
-                <ListItem.Title style={{ fontWeight: 'bold', color: "#753b00" }}>{item.nome}</ListItem.Title>
-                <ListItem.Subtitle>{item.descricao}</ListItem.Subtitle>
-                <ListItem.Subtitle style={{ color: 'gray' }}>R$ {item.valor}</ListItem.Subtitle>
-              </ListItem.Content>
-              <TouchableHighlight style={styles.button} onPress={() => excluirPedido(item.id)}>
-                <Text style={styles.text}>Excluir</Text>
-              </TouchableHighlight>
-            </ListItem>
-          </TouchableOpacity>
-        </View>
-      );
-    } else {
-      return null;
-    }
-  };
+  const renderItem = ({ item }) => (
+    <View style={{ padding: 8, marginBottom: -10 }}>
+      <TouchableOpacity>
+        <ListItem containerStyle={{ borderRadius: 20, backgroundColor: "#d1d1cf" }}>
+          <Image source={{ uri: item.imagem }} containerStyle={{ width: 100, height: 100, borderRadius: 50 }} />
+          <ListItem.Content style={{ flex: 1 }}>
+            <ListItem.Title style={{ fontWeight: 'bold', color: "#753b00" }}>{item.nome}</ListItem.Title>
+            <ListItem.Subtitle>{item.descricao}</ListItem.Subtitle>
+            <ListItem.Subtitle style={{ color: 'gray' }}>R$ {item.valor}</ListItem.Subtitle>
+          </ListItem.Content>
+          <TouchableHighlight style={styles.button} onPress={() => excluirPedido(item.id)}>
+            <Text style={styles.text}>Excluir</Text>
+          </TouchableHighlight>
+        </ListItem>
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
     <View style={{ flex: 1, backgroundColor: "#d98079" }}>
-      <View style={{ flex: 1 }}>
-        <FlatList
-          data={pedidos}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      </View>
+      <FlatList
+        data={pedidos}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
     </View>
   );
 }
