@@ -1,24 +1,23 @@
-# Projeto App-Food
+# Project App-Food
 
-## Sobre o Projeto
-O projeto App-Food é um aplicativo de comida básico desenvolvido em React Native usando o Expo. O aplicativo oferece uma variedade de funcionalidades que permitem aos usuários navegar por uma lista de comidas, visualizar detalhes de cada item, fazer pedidos e conferir seus pedidos anteriores.
+## About the Project
+The App-Food project is a basic food application developed in React Native using Expo. The application offers a variety of functionalities that allow users to browse a list of foods, view details of each item, place orders, and check their previous orders.
 
-## Funcionalidades
-O aplicativo possui as seguintes telas e funcionalidades:
+## Functionalities
+The application features the following screens and functionalities:
 
-- **Tela de Login:** Permite que os usuários façam login no aplicativo.
-- **Tela de Registro:** Permite que novos usuários se registrem no aplicativo.
-- **Tela de Lista:** Exibe uma lista de comidas disponíveis para os usuários.
-- **Tela de Detalhes:** Mostra detalhes de um item de comida selecionado, incluindo uma imagem, nome, descrição e preço. Os usuários também podem fazer um pedido a partir desta tela.
-- **Tela de Conferir Pedidos:** Permite que os usuários vejam seus pedidos anteriores. Os usuários também têm a opção de excluir um pedido.
-- **Barra Lateral:** Fornece navegação fácil entre as diferentes telas do aplicativo.
+- **Login Screen:** Allows users to log in to the application.
+- **Registration Screen:** Allows new users to register in the application.
+- **List Screen:** Displays a list of foods available to users.
+- **Details Screen:** Shows details of a selected food item, including an image, name, description, and price. Users can also place an order from this screen.
+- **Order Checkout Screen:** Allows users to view their previous orders. Users also have the option to delete an order.
+- **Sidebar:** Provides easy navigation between the different screens of the application.
 
-## Tecnologias Utilizadas
-O aplicativo foi desenvolvido usando as seguintes tecnologias:
+## Technologies Used
+The application was developed using the following technologies:
 
-- **React Native:** Uma estrutura de JavaScript para construir aplicativos móveis nativos.
-- **Expo:** Uma plataforma de código aberto para fazer aplicativos universais para Android, iOS e web com JavaScript e React.
-- **Firebase:** Uma plataforma de desenvolvimento de aplicativos da Google que fornece uma variedade de ferramentas e serviços para desenvolvedores. No projeto foram utilizados os seguintes serviços do Firebase:
-  - **Firestore:** Um banco de dados NoSQL em nuvem para armazenar e sincronizar dados em tempo real. Utilizei para armazenar as comidas e os pedidos do usuário logado e fornece-los respectivamente na tela de 'conferir pedidos'.
-  - **Authentication:** Fornece serviços de autenticação de back-end, SDKs fáceis de usar e bibliotecas de IU prontas para autenticar usuários no aplicativo. O usuário se registra usando nome, email, senha e telefone. E para logar é necessario usar o mesmo email e senha.
-
+- **React Native:** A JavaScript framework for building native mobile applications.
+- **Expo:** An open-source platform for making universal apps for Android, iOS, and web with JavaScript and React.
+- **Firebase:** A Google app development platform that provides a variety of tools and services for developers. The following Firebase services were used in the project:
+  - **Firestore:** A cloud-based NoSQL database for storing and syncing data in real-time. I used it to store the foods and the orders of the logged-in user and provide them respectively on the 'order checkout' screen.
+  - **Authentication:** Provides backend authentication services, easy-to-use SDKs, and ready-made UI libraries for authenticating users in the application. The user registers using name, email, password, and phone. And to log in, it is necessary to use the same email and password.
